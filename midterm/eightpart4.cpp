@@ -1,3 +1,6 @@
+//print enqueue or dequeue
+// if enqueue gives a state and its g and h scores，lowest f (= g + h) score at the top. If tied, follow the first-in-first-out policy.
+// if dequeue remove the top state of your priority queue and print that state as output.
 #include<iostream>
 #include <queue>
 #include<string.h>
@@ -30,7 +33,7 @@ int main()
 	priority_queue <arr, vector<arr>, cmp > s;
 	while(cin>>str)
 	{
-		if(!strcmp(str, "enqueue"))
+		if(!strcmp(str, "in"))
 		{
 			cin>>a;//[
 			for(int i=0;i<9;i++)
@@ -45,16 +48,16 @@ int main()
 			cin>>a;//)
 			arr tmp=arr(spa,x+y,con);
 			s.push(tmp);
-			cout<<"Insert OK!"<<endl;
+			cout<<"insert ok"<<endl;
 			con++;
 		}
-		else if(!strcmp(str, "dequeue"))
+		else if(!strcmp(str, "out"))
 		{
 			if(!s.empty())
 			{
 				arr top= s.top();
 				s.pop();
-				cout<<"Got";
+				
 				cout<<" ["<<top.space[0];
 				for(int i=1;i<9;i++)
 				{
@@ -63,7 +66,7 @@ int main()
 				cout<<"]"<<endl;
 			}
 			else{
-				cout<<"Queue is empty!!"<<endl;
+				cout<<"queue is empty"<<endl;
 			}	
 		}
 		else
